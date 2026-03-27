@@ -386,6 +386,93 @@ document.addEventListener('DOMContentLoaded', () => {
             Body.setPosition(rightWall, { x: newWidth - 25, y: newHeight / 2 })
         })
     }
+    const meowmusicScreen = document.getElementById('meowmusic-screen')
+    const vinylRecord = document.getElementById('vinyl-record')
+    const playBtn = document.getElementById('play-btn')
+    const audioPlayer = document.getElementById('audio-player')
+    
+    let currentTrack = 0
+    let isPlaying = false
+    
+    const tracks = [
+        { genre: 'РАССЛАБЛЯЮЩАЯ', animal: 'DOG1', src: 'sounds/relax.mp3' },
+        { genre: 'РОК', animal: 'CAT1', src: 'sounds/rock.mp3' },
+        { genre: 'ЭЛЕКТРОНИКА', animal: 'CAT2', src: 'sounds/electro.mp3' },
+        { genre: 'КАНТРИ', animal: 'CAT3', src: 'sounds/country.mp3' }
+    ]
+    
+    function loadTrack(index) {
+        const track = tracks[index]
+        audioPlayer.src = track.src
+        
+        document.querySelectorAll('.track-row').forEach(row => {
+            row.classList.remove('active')
+        })
+        document.querySelector(`.track-row[data-index="${index}"]`).classList.add('active')
+        
+        currentTrack = index
+    }
+    
+    function togglePlay() {
+        if (isPlaying) {
+            audioPlayer.pause()
+            playBtn.textContent = '►'
+            playBtn.classList.remove('playing')
+            vinylRecord.style.animationPlayState = 'paused'
+            vinylRecord.classList.remove('playing')
+            isPlaying = false
+        } else {
+            audioPlayer.play()
+            playBtn.textContent = '‖'
+            playBtn.classList.add('playing')
+            vinylRecord.style.animationPlayState = 'running'
+            vinylRecord.classList.add('playing')
+            isPlaying = true
+        }
+    }
+    
+    function nextTrack() {
+        currentTrack = (currentTrack + 1) % tracks.length
+        loadTrack(currentTrack)
+        if (isPlaying) {
+            audioPlayer.play()
+        }
+    }
+    
+    function prevTrack() {
+        currentTrack = (currentTrack - 1 + tracks.length) % tracks.length
+        loadTrack(currentTrack)
+        if (isPlaying) {
+            audioPlayer.play()
+        }
+    }
+    
+    document.querySelectorAll('.track-row').forEach((row, index) => {
+        row.addEventListener('click', () => {
+            loadTrack(index)
+            if (isPlaying) {
+                audioPlayer.play()
+            }
+        })
+    })
+    
+    document.querySelector('.prev-btn').addEventListener('click', prevTrack)
+    document.querySelector('.play-btn').addEventListener('click', togglePlay)
+    document.querySelector('.next-btn').addEventListener('click', nextTrack)
+    
+    audioPlayer.addEventListener('ended', () => {
+        nextTrack()
+    })
+    loadTrack(0)
+    
+    window.addEventListener('scroll', () => {
+        const physicsScreen = document.getElementById('physics-screen')
+        const physicsRect = physicsScreen.getBoundingClientRect()
+        
+        if (physicsRect.bottom < window.innerHeight) {
+            meowmusicScreen.classList.add('active')
+        }
+    })
 })
 
 

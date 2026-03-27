@@ -305,7 +305,6 @@ html, body {
     pointer-events: auto
 }
 .modal-content {
-    background: linear-gradient(135deg, #e0f7fa 0%, #b2ebf2 100%);
     padding: 40px;
     border-radius: 20px;
     max-width: 600px;
@@ -382,5 +381,200 @@ html, body {
     .modal-buttons {
         flex-direction: column;
         gap: 10px
+    }
+}
+
+
+
+.meowmusic-screen {
+    min-height: 100vh;
+    width: 100%;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    padding: 40px 20px;
+    opacity: 0;
+    pointer-events: none;
+    transition: opacity 0.5s ease;
+}
+
+.meowmusic-screen.active {
+    opacity: 1;
+    pointer-events: auto;
+}
+
+.meowmusic-container {
+    max-width: 800px;
+    width: 100%;
+    text-align: center;
+}
+
+.meowmusic-title {
+    font-size: 48px;
+    font-weight: 900;
+    color: #002828;
+    letter-spacing: 5px;
+    margin-bottom: 40px;
+    text-transform: uppercase;
+}
+
+.vinyl-wrapper {
+    margin-bottom: 40px;
+    display: flex;
+    justify-content: center;
+}
+
+.vinyl-record {
+    width: 450px;
+    height: 450px;
+    border-radius: 50%;
+    border: 8px solid #002828;
+    overflow: hidden;
+    position: relative;
+    animation: rotate 10s linear infinite paused;
+    box-shadow: 0 10px 40px rgba(0, 40, 40, 0.3);
+}
+
+.vinyl-record.playing {
+    animation-play-state: running;
+}
+
+.vinyl-img {
+    width: 100%;
+    height: 100%;
+    object-fit: cover;
+}
+
+@keyframes rotate {
+    from { transform: rotate(0deg); }
+    to { transform: rotate(360deg); }
+}
+
+.tracks-list {
+    background: #002828;
+    border: 4px solid #002828;
+    margin-bottom: 30px;
+    border-radius: 10px;
+    overflow: hidden;
+}
+
+.track-row {
+    display: flex;
+    align-items: center;
+    padding: 20px;
+    border-bottom: 2px solid rgba(0, 188, 212, 0.3);
+    cursor: pointer;
+    transition: background 0.3s ease;
+}
+
+.track-row:last-child {
+    border-bottom: none;
+}
+
+.track-row:hover {
+    background: rgba(0, 188, 212, 0.2);
+}
+
+.track-row.active {
+    background: rgba(0, 188, 212, 0.4);
+    border-left: 4px solid #00bcd4;
+}
+
+.track-num {
+    font-size: 24px;
+    font-weight: 900;
+    color: #00bcd4;
+    width: 50px;
+    text-align: center;
+}
+
+.track-genre {
+    flex: 1;
+    font-size: 20px;
+    font-weight: 700;
+    color: #ffffff;
+    letter-spacing: 2px;
+}
+
+.track-animal {
+    font-size: 16px;
+    font-weight: 700;
+    color: #00bcd4;
+    padding: 5px 15px;
+    background: rgba(0, 188, 212, 0.2);
+    border-radius: 5px;
+}
+
+.player-controls {
+    display: flex;
+    justify-content: center;
+    gap: 20px;
+    margin-top: 30px;
+}
+
+.control-btn {
+    width: 70px;
+    height: 70px;
+    border-radius: 50%;
+    background: #002828;
+    border: 4px solid #002828;
+    color: #00bcd4;
+    font-size: 24px;
+    cursor: pointer;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    transition: all 0.3s ease;
+}
+
+.control-btn:hover {
+    background: #00bcd4;
+    color: #002828;
+    transform: scale(1.1);
+}
+
+.play-btn {
+    width: 90px;
+    height: 90px;
+    font-size: 32px;
+}
+
+.play-btn.playing {
+    animation: pulse 0.5s infinite;
+}
+
+@keyframes pulse {
+    0%, 100% { transform: scale(1); }
+    50% { transform: scale(1.1); }
+}
+
+@media (max-width: 768px) {
+    .meowmusic-title {
+        font-size: 36px;
+    }
+    
+    .vinyl-record {
+        width: 280px;
+        height: 280px;
+    }
+    
+    .track-row {
+        padding: 15px;
+    }
+    
+    .track-genre {
+        font-size: 16px;
+    }
+    
+    .control-btn {
+        width: 55px;
+        height: 55px;
+        font-size: 18px;
+    }
+    
+    .play-btn {
+        width: 70px;
+        height: 70px;
+        font-size: 24px;
     }
 }
