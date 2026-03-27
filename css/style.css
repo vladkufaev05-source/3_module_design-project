@@ -9,7 +9,7 @@
 
 html, body {
     overflow-x: hidden;
-    width: 100%;
+    width: 100%
 }
 
 #puzzle-screen {
@@ -20,13 +20,13 @@ html, body {
     min-height: 100vh;
     display: flex;
     flex-direction: column;
-    padding: 2vh 2vw;
+    padding: 2vh 2vw
 }
 
 .puzzle-header {
     margin-bottom: 3vh;
     text-align: center;
-    z-index: 10;
+    z-index: 10
 }
 
 .puzzle-title {
@@ -35,7 +35,7 @@ html, body {
     color: black;
     text-transform: uppercase;
     letter-spacing: 0.2vw;
-    margin: 0;
+    margin: 0
 }
 
 .puzzle-container {
@@ -48,7 +48,7 @@ html, body {
     margin: 0 auto 3vh;
     display: flex;
     align-items: center;
-    justify-content: center;
+    justify-content: center
 }
 
 .puzzle-circle {
@@ -61,20 +61,20 @@ html, body {
     justify-content: center;
     overflow: hidden;
     user-select: none;
-    -webkit-tap-highlight-color: transparent;
+    -webkit-tap-highlight-color: transparent
 }
 
 .puzzle-circle img {
     width: 100%;
     height: 100%;
     object-fit: contain;
-    pointer-events: none;
+    pointer-events: none
 }
 
 .puzzle-circle.outer {
     width: 100%;
     height: 100%;
-    z-index: 1;
+    z-index: 1
 }
 
 .puzzle-circle.central {
@@ -82,7 +82,7 @@ html, body {
     height: 70%;
     z-index: 2;
     top: 15%;
-    left: 15%;
+    left: 15%
 }
 
 .puzzle-circle.inner {
@@ -90,15 +90,15 @@ html, body {
     height: 50%;
     z-index: 3;
     top: 25%;
-    left: 25%;
+    left: 25%
 }
 
 .puzzle-circle:active {
-    transform: scale(0.95);
+    transform: scale(0.95)
 }
 
 .puzzle-circle.completed {
-    animation: complete-pulse 0.6s ease forwards;
+    animation: complete-pulse 0.6s ease forwards
 }
 
 @keyframes complete-pulse {
@@ -117,7 +117,7 @@ html, body {
     z-index: 0;
     background-position: -100vw -100vh;
     animation: small-circular-move 3s linear infinite;
-    pointer-events: none;
+    pointer-events: none
 }
 
 @keyframes small-circular-move {
@@ -132,7 +132,7 @@ html, body {
     top: 0;
     left: 0;
     z-index: 0;
-    pointer-events: none;
+    pointer-events: none
 }
 
 .virtual-beasts-screen {
@@ -140,22 +140,24 @@ html, body {
     width: 100%;
     min-height: 100vh;
     display: flex;
+    flex-direction: column;
     align-items: center;
     justify-content: flex-start;
     opacity: 0;
     pointer-events: none;
     transition: opacity 0.5s ease;
     z-index: 100;
-    padding-top: 5vh;
+    padding: 5vh 20px;
+    padding-top: 10vh
 }
 
 .virtual-beasts-screen.active {
     opacity: 1;
-    pointer-events: auto;
+    pointer-events: auto
 }
 
 #puzzle-screen.completed {
-    display: none;
+    display: none
 }
 
 .logo-container {
@@ -165,43 +167,43 @@ html, body {
     justify-content: center;
     align-items: center;
     z-index: 10;
-    margin-bottom: 2vh;
+    margin-bottom: 2vh
 }
 
 .letter {
     position: relative;
     width: 60px;
-    height: 80px;
+    height: 80px
 }
 
 .letter-space {
-    width: 30px;
+    width: 30px
 }
 
 .letter img {
     position: absolute;
     width: 100%;
     height: 100%;
-    object-fit: contain;
+    object-fit: contain
 }
 
 .letter .part1 {
     top: 0;
     left: 0;
-    z-index: 1;
+    z-index: 1
 }
 
 .letter .part2 {
     top: 0;
     left: 0;
-    z-index: 2;
+    z-index: 2
 }
 
 
 @media (max-width: 768px) {
     .logo-container {
         gap: 1px;
-        padding: 20px;
+        padding: 20px
     }
     
     .letter {
@@ -210,7 +212,7 @@ html, body {
     }
     
     .letter-space {
-        width: 20px;
+        width: 20px
     }
 }
 
@@ -221,7 +223,7 @@ html, body {
     }
     
     .letter-space {
-        width: 15px;
+        width: 15px
     }
 }
 
@@ -233,25 +235,25 @@ html, body {
     overflow: hidden;
     opacity: 0;
     pointer-events: none;
-    transition: opacity 0.5s ease;
+    transition: opacity 0.5s ease
 }
 
 .physics-screen.active {
     opacity: 1;
-    pointer-events: auto;
+    pointer-events: auto
 }
 
 #physics-container {
     width: 100%;
     height: calc(100vh - 150px);
     position: relative;
-    z-index: 1;
+    z-index: 1
 }
 
 #physics-container canvas {
     display: block;
     width: 100%;
-    height: 100%;
+    height: 100%
 }
 
 .animals-container {
@@ -262,7 +264,7 @@ html, body {
     padding: 40px;
     margin-bottom: 2vh;
     z-index: 5;
-    min-height: 300px;
+    min-height: 300px
 }
 
 .animal {
@@ -270,20 +272,18 @@ html, body {
     width: 150px;
     height: 200px;
     cursor: pointer;
-    transition: transform 0.3s ease;
+    transition: transform 0.3s ease
 }
 
 .animal:hover {
-    transform: translateY(-10px);
+    transform: translateY(-10px)
 }
 
 .animal-img {
     width: 100%;
     height: 100%;
-    object-fit: contain;
+    object-fit: contain
 }
-
-/* ===== MODAL ===== */
 .animal-message-modal {
     position: fixed;
     top: 0;
@@ -297,14 +297,13 @@ html, body {
     z-index: 1000;
     opacity: 0;
     pointer-events: none;
-    transition: opacity 0.3s ease;
+    transition: opacity 0.3s ease
 }
 
 .animal-message-modal.active {
     opacity: 1;
-    pointer-events: auto;
+    pointer-events: auto
 }
-
 .modal-content {
     background: linear-gradient(135deg, #e0f7fa 0%, #b2ebf2 100%);
     padding: 40px;
@@ -314,11 +313,11 @@ html, body {
     position: relative;
     box-shadow: 0 10px 40px rgba(0, 0, 0, 0.3);
     transform: scale(0.8);
-    transition: transform 0.3s ease;
+    transition: transform 0.3s ease
 }
 
 .animal-message-modal.active .modal-content {
-    transform: scale(1);
+    transform: scale(1)
 }
 
 .modal-text {
@@ -326,13 +325,13 @@ html, body {
     line-height: 1.6;
     color: #002828;
     margin-bottom: 30px;
-    white-space: pre-line;
+    white-space: pre-line
 }
 
 .modal-buttons {
     display: flex;
     justify-content: center;
-    gap: 20px;
+    gap: 20px
 }
 
 .modal-btn {
@@ -342,46 +341,46 @@ html, body {
     border: none;
     border-radius: 10px;
     cursor: pointer;
-    transition: transform 0.2s ease, box-shadow 0.2s ease;
+    transition: transform 0.2s ease, box-shadow 0.2s ease
 }
 
 .modal-btn:hover {
     transform: translateY(-3px);
-    box-shadow: 0 5px 15px rgba(0, 0, 0, 0.2);
+    box-shadow: 0 5px 15px rgba(0, 0, 0, 0.2)
 }
 
 .take-btn {
     background: #00bcd4;
-    color: white;
+    color: white
 }
 
 .leave-btn {
     background: #002828;
-    color: white;
+    color: white
 }
 
 /* ===== ADAPTIVE ===== */
 @media (max-width: 768px) {
     .animals-container {
         gap: 2vw;
-        padding: 20px;
+        padding: 20px
     }
     
     .animal {
         width: 100px;
-        height: 130px;
+        height: 130px
     }
     
     .modal-content {
-        padding: 30px;
+        padding: 30px
     }
     
     .modal-text {
-        font-size: 16px;
+        font-size: 16px
     }
     
     .modal-buttons {
         flex-direction: column;
-        gap: 10px;
+        gap: 10px
     }
 }

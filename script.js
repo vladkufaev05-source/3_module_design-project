@@ -24,7 +24,6 @@ document.addEventListener('DOMContentLoaded', () => {
             circle.style.transform = `rotate(${randomRotation}deg)`
         })
 
-        // Скрываем второй экран изначально
         const virtualBeastsScreen = document.getElementById('virtual-beasts-screen')
         if (virtualBeastsScreen) {
             virtualBeastsScreen.style.opacity = '0'
@@ -194,7 +193,6 @@ document.addEventListener('DOMContentLoaded', () => {
     const takeBtn = document.getElementById('take-btn')
     const leaveBtn = document.getElementById('leave-btn')
 
-    // Клик по животному
     document.querySelectorAll('.animal').forEach(animal => {
         animal.addEventListener('click', () => {
             const animalType = animal.dataset.animal
@@ -207,7 +205,6 @@ document.addEventListener('DOMContentLoaded', () => {
         })
     })
 
-    // Закрытие модального окна
     function closeModal() {
         modal.classList.remove('active')
     }
@@ -222,7 +219,6 @@ document.addEventListener('DOMContentLoaded', () => {
         closeModal()
     })
 
-    // Закрытие по клику вне модального окна
     modal.addEventListener('click', (e) => {
         if (e.target === modal) {
             closeModal()
@@ -230,17 +226,13 @@ document.addEventListener('DOMContentLoaded', () => {
     })
 
 
-
-        // ===== PHYSICS SIMULATION =====
     const physicsScreen = document.getElementById('physics-screen')
     const physicsContainer = document.getElementById('physics-container')
 
-    // Инициализация физики после показа VIRTUAL BEASTS
     const originalUnlockNextScreen = unlockNextScreen
     unlockNextScreen = function(screenId) {
         originalUnlockNextScreen(screenId)
         if (screenId === 'virtual-beasts-screen') {
-            // Показываем экран с физикой
             setTimeout(() => {
                 physicsScreen.classList.add('active')
                 initPhysics()
@@ -260,15 +252,12 @@ document.addEventListener('DOMContentLoaded', () => {
             Events = Matter.Events,
             Common = Matter.Common
 
-        // create engine
         const engine = Engine.create()
         const world = engine.world
 
-        // get container dimensions
         const width = physicsContainer.clientWidth || window.innerWidth
     const height = physicsContainer.clientHeight || (window.innerHeight - 150)
 
-        // create renderer
         const render = Render.create({
             element: physicsContainer,
             engine: engine,
@@ -282,12 +271,9 @@ document.addEventListener('DOMContentLoaded', () => {
         })
 
         Render.run(render)
-
-        // create runner
         const runner = Runner.create()
         Runner.run(runner, engine)
 
-        // create boundary (surface at bottom)
         const ground = Bodies.rectangle(width / 2, height - 25, width, 50, { 
             isStatic: true,
             render: {
@@ -308,10 +294,8 @@ document.addEventListener('DOMContentLoaded', () => {
         })
 
         Composite.add(world, [ground, leftWall, rightWall])
-
-        // create falling shapes
         const shapes = []
-        const shapeTypes = 5 // figure_1.svg ... figure_5.svg
+        const shapeTypes = 5
 
         for (let i = 0; i < 20; i++) {
             setTimeout(() => {
@@ -334,7 +318,6 @@ document.addEventListener('DOMContentLoaded', () => {
                     }
                 }
 
-                // создаём разные формы
                 switch (Math.floor(Common.random(0, 3))) {
                     case 0:
                         body = Bodies.rectangle(x, y, size, size * 0.8, options)
@@ -356,7 +339,6 @@ document.addEventListener('DOMContentLoaded', () => {
             }, i * 250)
         }
 
-        // add mouse control
         const mouse = Mouse.create(render.canvas)
         const mouseConstraint = MouseConstraint.create(engine, {
             mouse: mouse,
@@ -369,7 +351,6 @@ document.addEventListener('DOMContentLoaded', () => {
         Composite.add(world, mouseConstraint)
         render.mouse = mouse
 
-        // repel shapes from mouse cursor
         Events.on(engine, 'beforeUpdate', () => {
             const mousePosition = mouse.position
             const repelRadius = 120
@@ -391,8 +372,6 @@ document.addEventListener('DOMContentLoaded', () => {
                 }
             })
         })
-
-        // handle window resize
         window.addEventListener('resize', () => {
             const newWidth = window.innerWidth
             const newHeight = window.innerHeight
@@ -408,4 +387,8 @@ document.addEventListener('DOMContentLoaded', () => {
         })
     }
 })
+
+
+
+
     
