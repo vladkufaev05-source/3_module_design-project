@@ -20,7 +20,8 @@ html, body {
     min-height: 100vh;
     display: flex;
     flex-direction: column;
-    padding: 2vh 2vw
+    padding: 2vh 2vw;
+    background-color: #C6F7FF;
 }
 
 .puzzle-header {
@@ -148,7 +149,8 @@ html, body {
     transition: opacity 0.5s ease;
     z-index: 100;
     padding: 5vh 20px;
-    padding-top: 10vh
+    padding-top: 10vh;
+    background-color: #C6F7FF;
 }
 
 .virtual-beasts-screen.active {
@@ -235,7 +237,8 @@ html, body {
     overflow: hidden;
     opacity: 0;
     pointer-events: none;
-    transition: opacity 0.5s ease
+    transition: opacity 0.5s ease;
+    background: linear-gradient(to top, #005D62 0%, #C6F7FF 100%);
 }
 
 .physics-screen.active {
@@ -384,6 +387,22 @@ html, body {
     }
 }
 
+.paw-music {
+    position: absolute;
+    top: 50%;
+    left: 50%;
+    transform: translate(-50%, -50%);
+    width: 600px;
+    height: 600px;
+    opacity: 0.12;
+    z-index: 0;
+    pointer-events: none;
+    background-image: url('../pictures/paw-music.svg');
+    background-size: contain;
+    background-repeat: no-repeat;
+    background-position: center;
+}
+
 
 
 .meowmusic-screen {
@@ -396,6 +415,8 @@ html, body {
     opacity: 0;
     pointer-events: none;
     transition: opacity 0.5s ease;
+    background: linear-gradient(to bottom, #6DB1B8, #C6F7FF);
+    position: relative;
 }
 
 .meowmusic-screen.active {
@@ -407,6 +428,8 @@ html, body {
     max-width: 800px;
     width: 100%;
     text-align: center;
+    position: relative;
+    z-index: 1;
 }
 
 .meowmusic-title {
