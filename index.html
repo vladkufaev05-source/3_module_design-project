@@ -9,7 +9,110 @@
 </head>
 <body>
 
+    <section class="puzzle-screen" id="puzzle-screen">
+        <div class="puzzle-header">
+            <h1 class="puzzle-title">Собери логотип</h1>
+        </div>
+
+        <div class="puzzle-container" data-js="puzzle-container">
+            <div class="puzzle-circle outer" data-js="puzzle-outer" data-rotation="0">
+                <img src="pictures/outer circle.svg" alt="">
+            </div>
+
+            <div class="puzzle-circle central" data-js="puzzle-central" data-rotation="0">
+                <img src="pictures/central circle.svg" alt="">
+            </div>
+
+            <div class="puzzle-circle inner" data-js="puzzle-inner" data-rotation="0">
+                <img src="pictures/inner circle.svg" alt="">
+            </div>
+        </div>
+    </section>
+
+    <section class="virtual-beasts-screen" id="virtual-beasts-screen">
+        <div class="logo-container" id="virtual-beasts">
+            <div class="letter" data-letter="V">
+                <img src="pictures/part_V.svg" alt="" class="part1">
+            </div>
+            <div class="letter" data-letter="I">
+                <img src="pictures/part_I.svg" alt="" class="part1">
+            </div>
+            <div class="letter" data-letter="R">
+                <img src="pictures/part_R.svg" alt="" class="part1">
+            </div>
+            <div class="letter" data-letter="T">
+                <img src="pictures/part_T.svg" alt="" class="part1">
+            </div>
+            <div class="letter" data-letter="U">
+                <img src="pictures/part_U.svg" alt="" class="part1">
+            </div>
+            <div class="letter" data-letter="A">
+                <img src="pictures/part_A.svg" alt="" class="part1">
+            </div>
+            <div class="letter" data-letter="L">
+                <img src="pictures/part_L.svg" alt="" class="part1">
+            </div>
+            
+            <div class="letter-space"></div>
+
+            <div class="letter" data-letter="B">
+                <img src="pictures/part_B.svg" alt="" class="part1">
+            </div>
+            <div class="letter" data-letter="E">
+                <img src="pictures/part_E.svg" alt="" class="part1">
+            </div>
+            <div class="letter" data-letter="A2">
+                <img src="pictures/part_A.svg" alt="" class="part1">
+            </div>
+            <div class="letter" data-letter="S">
+                <img src="pictures/part_S.svg" alt="" class="part1">
+            </div>
+            <div class="letter" data-letter="T2">
+                <img src="pictures/part_T.svg" alt="" class="part1">
+            </div>
+            <div class="letter" data-letter="S2">
+                <img src="pictures/part_S.svg" alt="" class="part1">
+            </div>
+        </div>
+
+        <div class="animals-container">
+            <div class="animal" data-animal="dogl">
+                <img src="pictures/dog1.svg" alt="" class="animal-img">
+            </div>
+
+            <div class="animal" data-animal="catl">
+                <img src="pictures/cat1.svg" alt="" class="animal-img">
+            </div>
+
+            <div class="animal" data-animal="cat2">
+                <img src="pictures/cat2.svg" alt="" class="animal-img">
+            </div>
+        </div>
+
+        <div class="animal-message-modal" id="animal-message-modal">
+            <div class="modal-content">
+                <div class="modal-text" id="modal-text"></div>
+            </div>
+
+            <div class="modal-buttons">
+                <button class="modal-btn take-btn" id="take-btn">ЗАБРАТЬ</button>
+                <button class="modal-btn leave-btn" id="leave-btn">ОСТАВИТЬ</button>
+            </div>
+        </div>
+
+        
+    </section>
+
+    <section class="physics-screen" id="physics-screen">
+        <div id="physics-container"></div>
+    </section>
+
+
+
+
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/matter-js/0.19.0/matter.min.js"></script>
     <script src="script.js"></script>
+
     
 </body>
 </html>
